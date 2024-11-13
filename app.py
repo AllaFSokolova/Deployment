@@ -42,7 +42,7 @@ def predict(location, mintemp, maxtemp,
     predictions = model.predict(data)
     return predictions[0]
 
-# Заголовок застосунку
+# Title
 st.title('Aussie Rain Prediction')
 st.image('meteo.jpg', caption='Weather Forecast Image', use_column_width=True)
 st.markdown('This is a simple model to predict whether it will rain tomorrow or not')
@@ -50,8 +50,8 @@ st.markdown('This is a simple model to predict whether it will rain tomorrow or 
 # Assuming you have your dataset loaded from a CSV file
 weather_df = pd.read_csv("weatherAUS.csv") 
 
-# Відображення таблиці середніх значень для числових змінних
-st.header("СAverage values of quantitative features for each type of rain")
+# Table of mean values for numeric features
+st.header("Average values of quantitative features for each type of rain")
 numeric_cols = weather_df.select_dtypes(include='number').columns  # Select only numeric columns
 mean_values = weather_df.groupby('RainToday')[numeric_cols].mean().reset_index()
 st.dataframe(mean_values)
@@ -73,7 +73,7 @@ wind_directions = ['W', 'WNW', 'WSW', 'NE', 'NNW', 'N', 'NNE', 'SW', 'ENE',
                    'SSE', 'S', 'NW', 'SE', 'ESE', 'E', 'SSW']
 rain_today_options = ['Yes', 'No']
 
-# Інтерфейс для введення даних
+# Iterface for parameters
 location = st.selectbox('location', locations)
 mintemp = st.number_input('mintemp', value=15.0)
 maxtemp = st.number_input('maxtemp', value=25.0)
@@ -96,7 +96,7 @@ temp9am = st.number_input('temp9am', value=18.0)
 temp3pm = st.number_input('temp3pm', value=22.0)
 raintoday = st.selectbox('raintoday', rain_today_options)
 
-# Кнопка для прогнозування
+# Predict Button
 if st.button('Predict'):
     prediction = predict(location, mintemp, maxtemp, 
                          rainfall, evaporation, sunshine, 
@@ -106,7 +106,7 @@ if st.button('Predict'):
                          pressure3pm, cloud9am, cloud3pm, temp9am, 
                          temp3pm, raintoday)
     
-    st.write('результат прогнозу:', 'Rain Tomorrow' if prediction == 1 else 'No Rain Tomorrow')
+    st.write('Result:', 'Rain Tomorrow' if prediction == 1 else 'No Rain Tomorrow')
 
 
 
