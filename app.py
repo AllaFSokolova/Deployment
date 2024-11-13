@@ -43,20 +43,20 @@ def predict(location, mintemp, maxtemp,
     return predictions[0]
 
 # Заголовок застосунку
-st.title('Прогнозування дощу в Австралії')
+st.title('Aussie Rain Prediction')
 st.image('meteo.jpg', caption='Weather Forecast Image', use_column_width=True)
-st.markdown('Це проста модель для прогнозу чи буде дощ завтра чи ні')
+st.markdown('This is a simple model to predict whether it will rain tomorrow or not')
 
 # Assuming you have your dataset loaded from a CSV file
 weather_df = pd.read_csv("weatherAUS.csv") 
 
 # Відображення таблиці середніх значень для числових змінних
-st.header("Середні значення кількісних характеристик для кожного типу дощу")
+st.header("СAverage values of quantitative features for each type of rain")
 numeric_cols = weather_df.select_dtypes(include='number').columns  # Select only numeric columns
 mean_values = weather_df.groupby('RainToday')[numeric_cols].mean().reset_index()
 st.dataframe(mean_values)
 
-st.markdown('Введіть дані:') 
+st.markdown('Insert Data:') 
 
 locations = np.array(['Albury', 'BadgerysCreek', 'Cobar', 'CoffsHarbour', 'Moree',
                       'Newcastle', 'NorahHead', 'NorfolkIsland', 'Penrith', 'Richmond',
@@ -97,7 +97,7 @@ temp3pm = st.number_input('temp3pm', value=22.0)
 raintoday = st.selectbox('raintoday', rain_today_options)
 
 # Кнопка для прогнозування
-if st.button('прогнозувати'):
+if st.button('Predict'):
     prediction = predict(location, mintemp, maxtemp, 
                          rainfall, evaporation, sunshine, 
                          windgustdir, windgustspeed, winddir9am, 
@@ -106,7 +106,7 @@ if st.button('прогнозувати'):
                          pressure3pm, cloud9am, cloud3pm, temp9am, 
                          temp3pm, raintoday)
     
-    st.write('результат прогнозу:', 'так' if prediction == 1 else 'ні')
+    st.write('результат прогнозу:', 'Rain Tomorrow' if prediction == 1 else 'No Rain Tomorrow')
 
 
 
