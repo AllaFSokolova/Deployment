@@ -20,7 +20,7 @@ This project requires the following Python libraries:
 Install dependencies with:
 ```bash
 pip install -r requirements.txt
-
+```
 ## Feature Engineering
 
 For feature engineering, categorical and numerical columns were processed as follows:
@@ -83,8 +83,10 @@ If you’re interested in improving this project, follow these steps:
 3. Create a new branch for your feature:
    ```bash
    git checkout -b feature-name
+   ```
 4. Make your changes and commit them with a clear message.
 5. Push your branch to your forked repo:
   ```bash
   git push origin feature-name
+```
 6. Open a Pull Request for review.
