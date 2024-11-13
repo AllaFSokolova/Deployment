@@ -55,25 +55,9 @@ These parameters were selected after several trials to achieve a good balance of
 
 ## Performance Metrics
 
-In addition to accuracy, the following performance metrics were used to evaluate the model:
-- **Precision**: Evaluates the proportion of true positive predictions out of all positive predictions.
-- **Recall**: Measures the proportion of actual positives that were correctly identified.
-- **F1-Score**: The harmonic mean of precision and recall, providing a balance between both metrics.
-  
 The final model achieved:
 - **Accuracy Validation**: 84.1%
 - **Accuracy Test**: 82.79%
-
-## Data Visualization
-
-Exploratory Data Analysis (EDA) was conducted to gain insights into the data and relationships between weather variables. Some key visualizations included:
-- **Temperature Distributions**: Histograms of temperature values across different locations.
-- **Rainfall Patterns**: Scatter plots showing rainfall across various regions and time periods.
-- **Correlation Matrix**: Heatmap showing correlations between numerical features, highlighting relationships that may impact rainfall predictions.
-
-Example visualizations are included in the `notebooks/EDA.ipynb` file for further exploration.
-
----
 
 ## How to Contribute
 
