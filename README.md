@@ -74,3 +74,8 @@ If you’re interested in improving this project, follow these steps:
   git push origin feature-name
 ```
 6. Open a Pull Request for review.
+
+## Live Demo
+
+Check out the live demo of the Rain Prediction App [here](https://rain-australia-cozmk5m3tvhxuravxvusq2.streamlit.app/).
+
